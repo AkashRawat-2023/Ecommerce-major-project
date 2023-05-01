@@ -6,6 +6,9 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "product")
 @Data
@@ -31,8 +34,8 @@ public class Product {
     @Enumerated(EnumType.STRING)
     ProductStatus productStatus;
 
-    @OneToOne(mappedBy = "product",cascade = CascadeType.ALL)
-    Item item;
+    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
+    List<Item> itemList = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn

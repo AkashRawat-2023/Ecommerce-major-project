@@ -20,13 +20,26 @@ public class SellerController {
     @PostMapping("/add")
     public ResponseEntity addSeller(@RequestBody SellerRequestDto sellerRequestDto) throws EmailAlreadyPresentException {
 
-        try{
+        try {
             SellerResponseDto sellerResponseDto = sellerServiceImpl.addSeller(sellerRequestDto);
             return new ResponseEntity(sellerResponseDto, HttpStatus.CREATED);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
 
-            return new ResponseEntity(e,HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(e, HttpStatus.BAD_REQUEST);
         }
     }
 }
+    //  GET a seller by email
+
+    // get by id
+
+    // get all seller
+
+    // update seller info based on email id
+
+    // delete a seller based on email
+
+    //delete by id
+
+    // get all sellers of a particular age
+

@@ -1,10 +1,7 @@
 package com.example.ecommerce.entity;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 @Entity
@@ -13,13 +10,12 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Builder
 public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
-
-    String name;
 
     int requiredQuantity;
 
@@ -27,7 +23,7 @@ public class Item {
     @JoinColumn
     Ordered ordered;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn
     Product product;
 
